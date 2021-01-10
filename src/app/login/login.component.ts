@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from '../services/login.service';
@@ -26,7 +26,6 @@ export class LoginComponent {
 
   login(event: Event): void {
     event.preventDefault();
-    console.log(event);
     if (this.form.valid) {
       const value = this.form.value;
 

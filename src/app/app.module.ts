@@ -10,6 +10,7 @@ import { SaleComponent } from './sale/sale.component';
 import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ProductDialogComponent } from './product/product-dialog/product-dialog.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     ProductComponent,
     SaleComponent,
     LoginComponent,
+    ProductDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -26,6 +28,7 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     ReactiveFormsModule,
   ],
+  entryComponents: [ProductDialogComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

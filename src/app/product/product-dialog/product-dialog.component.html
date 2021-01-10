@@ -1,0 +1,20 @@
+<form [formGroup]="form" (ngSubmit)="save($event)">
+  <mat-form-field>
+    <input matInput placeholder="Nombre" formControlName="name"/>
+  </mat-form-field>
+
+  <mat-form-field>
+    <input matInput placeholder="Precio" formControlName="price" />
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-select placeholder="Estado" [(value)]="statusSelectedId" formControlName="status">
+      <mat-option *ngFor="let s of status" [value]="s.id">
+        {{ s.status }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Registrar</button>
+  <button mat-raised-button color="accent" type="button" (click)="cancel()">Cancelar</button>
+</form>
