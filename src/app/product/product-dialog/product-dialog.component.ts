@@ -61,26 +61,26 @@ export class ProductDialogComponent implements OnInit {
 
     let productToSave = new Product();
     const status = new ProductStatus();
+    const userLogged = JSON.parse(sessionStorage.getItem('user') || '');
 
     status.id = this.statusSelectedId;
     productToSave = this.form.value;
     productToSave.status = status;
+    productToSave.modifiedBy = userLogged.id;
 
     if (this.data.id) {
       productToSave.id = this.data.id;
       this.productService.update(productToSave).pipe(switchMap(() => {
         return this.productService.findAll();
-      })).
-        subscribe(res => {
-          this.productService.productSubject.next(res.content);
-        });
+      })).subscribe(res => {
+        this.productService.productSubject.next(res.content);
+      });
     } else {
       this.productService.save(productToSave).pipe(switchMap(() => {
         return this.productService.findAll();
-      })).
-        subscribe(res => {
-          return this.productService.findAll();
-        });
+      })).subscribe(res => {
+        return this.productService.productSubject.next(res.content);
+      });
     }
     this.dialogRef.close();
   }

@@ -5,4 +5,5 @@ export class Product {
     name: string;
     price: number;
     status: ProductStatus;
+    modifiedBy: number;
 }

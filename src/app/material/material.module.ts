@@ -20,6 +20,8 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatPaginatorModule,
     MatFormFieldModule,
     MatStepperModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCheckboxModule,
+    MatSnackBarModule,
   ],
   exports: [
     MatButtonModule,
@@ -65,7 +69,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatPaginatorModule,
     MatFormFieldModule,
     MatStepperModule,
-    MatDialogModule
+    MatDialogModule,
+    MatCheckboxModule,
+    MatSnackBarModule,
   ]
 })
 export class MaterialModule { }

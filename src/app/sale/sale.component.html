@@ -1,1 +1,47 @@
-<p>sale works!</p>
+<mat-toolbar>Ventas</mat-toolbar>
+
+<div class="example-header">
+    <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Buscar ventas" #input>
+    </mat-form-field>
+</div>
+
+<table mat-table [dataSource]="dataSource" matSort>
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+    <td mmat-cell *matCellDef="let row"> {{row.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="total">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Total </th>
+    <td mmat-cell *matCellDef="let row"> {{row.total}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="saleDate">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha venta </th>
+    <td mmat-cell *matCellDef="let row"> {{row.saleDate}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="modifiedBy">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header> Usuario </th>
+    <td mmat-cell *matCellDef="let row"> {{row.modifiedBy.name}} </td>
+  </ng-container>
+
+  <!-- <ng-container matColumnDef="acciones">
+    <mat-header-cell *matHeaderCellDef>Acciones</mat-header-cell>
+    <mat-cell *matCellDef="let row">
+      <button mat-icon-button color="primary" (click)="openDialog(row)">
+        <mat-icon>ballot</mat-icon>
+      </button>
+      <button mat-icon-button color="accent" (click)="delete(row.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-cell>
+  </ng-container> -->
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]" ></mat-paginator>
