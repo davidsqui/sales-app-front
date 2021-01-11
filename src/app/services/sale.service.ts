@@ -17,8 +17,8 @@ export class SaleService {
     private http: HttpClient
   ) { }
 
-  findAll() {
-    return this.http.get<any>(`${this.url}/sales`);
+  findAll(query?: string) {
+    return this.http.get<any>(`${this.url}/sales?${query}`);
   }
 
   save(sale: Sale) {
